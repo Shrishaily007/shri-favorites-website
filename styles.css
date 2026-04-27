@@ -1,3 +1,4 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -6,97 +7,134 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(180deg, #000000, #0f172a);
-    color: white;
+    background: #000;
+    color: #fff;
 }
 
 /* HEADER */
 header {
     display: flex;
     justify-content: space-between;
-    padding: 15px 25px;
-    background: rgba(0,0,0,0.8);
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(0,0,0,0.9);
     position: sticky;
     top: 0;
+    z-index: 100;
+}
+
+header h1 {
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    gap: 12px;
 }
 
 nav a {
-    margin-left: 15px;
-    text-decoration: none;
+    font-size: 14px;
     color: #ccc;
+    text-decoration: none;
 }
 
 nav a:hover {
-    color: white;
+    color: #fff;
 }
 
 /* INTRO */
 .intro {
     text-align: center;
-    padding: 40px 20px;
+    padding: 20px 14px;
 }
 
 .intro h2 {
-    font-size: 26px;
+    font-size: 20px;
+    margin-bottom: 6px;
 }
 
 .intro p {
-    opacity: 0.7;
+    font-size: 14px;
+    color: #aaa;
+}
+
+/* SECTION */
+section h2 {
+    font-size: 18px;
+    padding: 10px 14px;
 }
 
 /* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 18px;
-    padding: 20px;
+    grid-template-columns: repeat(2, 1fr); /* FIXED 2 columns */
+    gap: 12px;
+    padding: 10px;
 }
 
 /* CARD */
 .card {
-    background: rgba(255,255,255,0.05);
+    background: #111;
     border-radius: 10px;
     overflow: hidden;
     transition: 0.3s;
 }
 
-.card:hover {
-    transform: scale(1.08);
-}
-
+/* IMAGE FIX */
 .card img {
     width: 100%;
-    height: 240px;
+    aspect-ratio: 2/3; /* PERFECT poster ratio */
     object-fit: cover;
+    background: #222;
+}
+
+/* BROKEN IMAGE FIX */
+.card img {
+    display: block;
+}
+.card img:before {
+    content: "";
 }
 
 /* TITLE */
 .card h3 {
-    padding: 10px;
-    font-size: 14px;
+    font-size: 13px;
+    padding: 8px;
+    min-height: 40px;
 }
 
 /* BUTTON */
 button {
-    margin: 10px;
-    padding: 6px 10px;
-    background: red;
+    margin: 0 8px 10px;
+    padding: 6px;
+    width: calc(100% - 16px);
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    background: #e50914; /* Netflix red */
     color: white;
-    cursor: pointer;
+    font-size: 13px;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
-    padding: 20px;
-    background: black;
+    font-size: 12px;
+    padding: 15px;
+    color: #777;
 }
 
-/* MOBILE */
-@media(max-width:600px){
-    .card img{
-        height:180px;
+/* TABLET */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
     }
 }
